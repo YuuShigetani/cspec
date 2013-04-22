@@ -4,7 +4,7 @@
  * See copyright notice at the end of this file
  *
  */
- 
+
 #ifndef CSPEC_H
 #define CSPEC_H
 
@@ -20,32 +20,32 @@
 
 /* Structural macros */
 
-#define DEFINE_DESCRIPTION(foo)				  void foo ## _describe();
-#define DESCRIPTION(foo)					  foo ## _describe
+#define define_description(foo)          void foo ## _describe();
+#define description(foo)            foo ## _describe
 
-#define DESCRIBE(foo, caption)                void foo ## _describe () { CSpec_StartDescribe(caption); {
-#define END_DESCRIBE                          } CSpec_EndDescribe(); }
+#define describe(foo, caption)                void foo ## _describe () { CSpec_StartDescribe(caption); {
+#define end_describe                          } CSpec_EndDescribe(); }
 
-#define IT(caption)                           { CSpec_StartIt(caption); {
-#define END_IT                                } CSpec_EndIt() ; }
+#define it(caption)                           { CSpec_StartIt(caption); {
+#define end_it                                } CSpec_EndIt() ; }
 
 
 
 /* Expectation macros */
 
-#define SHOULD_BE_TRUE(x)					  CSPEC_EVAL( (x) ) 
-#define SHOULD_EQUAL(x, y)                    CSPEC_EVAL( (x) == (y) ) 
-#define SHOULD_EQUAL_DOUBLE(x, y, delta)      CSPEC_EVAL( cspec_fabs( (x) - (y) ) <= delta )
-#define SHOULD_MATCH(x, y)                    CSPEC_EVAL( cspec_strcmp(x, y) ==  0   )
-#define SHOULD_BE_NULL(x)                     CSPEC_EVAL( (x) == 0 )
+#define should_be_true(x)            CSPEC_EVAL( (x) )
+#define should_equal(x, y)                    CSPEC_EVAL( (x) == (y) )
+#define should_equal_double(x, y, delta)      CSPEC_EVAL( cspec_fabs( (x) - (y) ) <= delta )
+#define should_match(x, y)                    CSPEC_EVAL( cspec_strcmp(x, y) ==  0   )
+#define should_be_null(x)                     CSPEC_EVAL( (x) == 0 )
 
-#define SHOULD_BE_FALSE(x)					  CSPEC_EVAL( !(x) )
-#define SHOULD_NOT_EQUAL(x, y)                CSPEC_EVAL( (x) != (y) ) 
-#define SHOULD_NOT_EQUAL_DOUBLE(x, y, delta)  CSPEC_EVAL( cspec_fabs( (x) - (y) ) > delta )
-#define SHOULD_NOT_MATCH(x, y)                CSPEC_EVAL( cspec_strcmp(x, y) != 0   )
-#define SHOULD_NOT_BE_NULL(x)                 CSPEC_EVAL( (x) != 0 )
+#define should_be_false(x)            CSPEC_EVAL( !(x) )
+#define should_not_equal(x, y)                CSPEC_EVAL( (x) != (y) )
+#define should_not_equal_double(x, y, delta)  CSPEC_EVAL( cspec_fabs( (x) - (y) ) > delta )
+#define should_not_match(x, y)                CSPEC_EVAL( cspec_strcmp(x, y) != 0   )
+#define should_not_be_null(x)                 CSPEC_EVAL( (x) != 0 )
 
-#define SHOULD_PENDING(reason)			      CSPEC_PENDING(reason)
+#define should_pending(reason)            CSPEC_PENDING(reason)
 
 
 
@@ -61,7 +61,7 @@ int CSpec_Run( CSpecDescriptionFun fun, CSpecOutputStruct* output);
  * Copyright 2008 Arnaud Brejeon.
  *
  * Cspec is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as 
+ * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, version 3.
  *
  * CSpec is distributed in the hope that it will be useful,
