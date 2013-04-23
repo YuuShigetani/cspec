@@ -1,13 +1,14 @@
 .DS_Store
 *.o
 src/libcspec.a
-src/.deps/
+.deps/
+example/
 sample/sample
 sample_skip/sample_skip
 sample_xml/sample
 sample_xml/results.xml
 *~
-autom4te.cache/
+/autom4te.cache/
 aclocal.m4
 /config.*
 configure
