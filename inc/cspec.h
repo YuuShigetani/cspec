@@ -20,14 +20,15 @@
 
 /* Structural macros */
 
-#define define_description(foo)          void foo ## _describe();
-#define description(foo)            foo ## _describe
+#define define_description(foo) void foo ## _describe();
+#define description(foo)        foo ## _describe
 
-#define describe(foo, caption)                void foo ## _describe () { CSpec_StartDescribe(caption); {
-#define end_describe                          } CSpec_EndDescribe(); }
+#define describe(foo, caption)  void foo ## _describe () { CSpec_StartDescribe(caption); {
+#define end_describe            } CSpec_EndDescribe(); }
 
-#define it(caption)                           { CSpec_StartIt(caption); {
-#define end_it                                } CSpec_EndIt() ; }
+#define it(caption)             { CSpec_StartIt(caption); {
+#define end_it                  } CSpec_EndIt() ; }
+#define end                     } CSpec_End() ; }
 
 
 

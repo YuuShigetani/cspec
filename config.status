@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/yuu/study/c/cspec'
+ac_pwd='/home/yuu/work/cspec'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -657,12 +657,12 @@ S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} /home/yuu/study/c/cspec/install-sh"
-S["MAKEINFO"]="${SHELL} /home/yuu/study/c/cspec/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/yuu/study/c/cspec/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/yuu/study/c/cspec/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /home/yuu/study/c/cspec/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/yuu/study/c/cspec/missing --run aclocal-1.11"
+S["install_sh"]="${SHELL} /home/yuu/work/cspec/install-sh"
+S["MAKEINFO"]="${SHELL} /home/yuu/work/cspec/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/yuu/work/cspec/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/yuu/work/cspec/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/yuu/work/cspec/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/yuu/work/cspec/missing --run aclocal-1.11"
 S["VERSION"]="0.3.0-snapshot"
 S["PACKAGE"]="cspec"
 S["CYGPATH_W"]="echo"

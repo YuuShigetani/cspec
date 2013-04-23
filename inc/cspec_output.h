@@ -1,5 +1,5 @@
 /*
- *  cspec_output.h   :  Definition for output 
+ *  cspec_output.h   :  Definition for output
  *
  * See copyright notice in cspec.h
  *
@@ -12,6 +12,7 @@ typedef void ( * CSpecOutputEndDescribeFun ) ( );
 
 typedef void ( * CSpecOutputStartItFun ) ( const char *descr);
 typedef void ( * CSpecOutputEndItFun ) ( );
+typedef void ( * CSpecOutputEndFun ) ( );
 
 typedef void ( * CSpecOutputEvalFun ) (const char*filename, int line_number, const char*assertion, int assertionResult);
 typedef void ( * CSpecOutputPendingFun ) (const char* reason);
@@ -19,16 +20,17 @@ typedef void ( * CSpecOutputPendingFun ) (const char* reason);
 typedef struct
 {
 
-	CSpecOutputStartDescribeFun		startDescribeFun;
-	CSpecOutputEndDescribeFun		endDescribeFun;
+    CSpecOutputStartDescribeFun startDescribeFun;
+    CSpecOutputEndDescribeFun   endDescribeFun;
 
-	CSpecOutputStartItFun			startItFun;
-	CSpecOutputEndItFun				endItFun;
+    CSpecOutputStartItFun       startItFun;
+    CSpecOutputEndItFun         endItFun;
+    CSpecOutputEndFun           endFun;
 
-	CSpecOutputEvalFun				evalFun;
-	CSpecOutputPendingFun			pendingFun;
-   
-	int failed;
+    CSpecOutputEvalFun          evalFun;
+    CSpecOutputPendingFun       pendingFun;
+
+    int failed;
 
 } CSpecOutputStruct;
 
