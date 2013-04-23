@@ -30,6 +30,8 @@
 #define end_it                  } CSpec_EndIt() ; }
 #define end                     } CSpec_End() ; }
 
+#define context(caption)             { CSpec_StartContext(caption); {
+
 
 
 /* Expectation macros */

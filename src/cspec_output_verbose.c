@@ -13,6 +13,7 @@
 #include "cspec_output_verbose.h"
 
 static CSpecOutputStruct verbose;
+int tab_num = 0;
 
 /* private functions */
 static void coloredPrintf(CSpec_Color color, const char* format, ...);
@@ -22,6 +23,13 @@ static WORD getWindowsColorAttribute(CSpec_Color color);
 static int getAnsiColorCode(CSpec_Color color);
 #endif  /* _WIN32 */
 
+
+void printTab(int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+        printf("    ");
+}
 
 void startDescribeFunVerbose( const char *descr)
 {
@@ -35,7 +43,8 @@ void endDescribeFunVerbose( )
 
 void startItFunVerbose( const char *descr)
 {
-    printf("   - it %s\n", descr);
+    printTab(++tab_num);
+    printf("- it %s\n", descr);
 }
 
 void endItFunVerbose( )
@@ -45,20 +54,28 @@ void endItFunVerbose( )
 
 void endFunVerbose( )
 {
+    tab_num--;
     printf("\n");
+}
+
+void startContextFunVerbose( const char *descr)
+{
+    printTab(++tab_num);
+    printf("- context %s\n", descr);
 }
 
 void evalFunVerbose(const char*filename, int line_number, const char*assertion, int assertionResult)
 {
+    printTab(tab_num + 1);
     if(assertionResult)
     {
         coloredPrintf(CSPEC_COLOR_GREEN,
-                "       OK: %s\n", assertion, filename, line_number);
+                "OK: %s\n", assertion, filename, line_number);
     }
     else
     {
         coloredPrintf(CSPEC_COLOR_RED,
-                "       Failed: %s in file %s at line %d\n", assertion, filename, line_number);
+                "Failed: %s in file %s at line %d\n", assertion, filename, line_number);
     }
 }
 
@@ -75,6 +92,7 @@ CSpecOutputStruct* CSpec_NewOutputVerbose()
     verbose.endDescribeFun   = endDescribeFunVerbose;
     verbose.startItFun       = startItFunVerbose;
     verbose.endItFun         = endItFunVerbose;
+    verbose.startContextFun  = startContextFunVerbose;
     verbose.endFun           = endFunVerbose;
     verbose.evalFun          = evalFunVerbose;
     verbose.pendingFun       = pendingFunVerbose;

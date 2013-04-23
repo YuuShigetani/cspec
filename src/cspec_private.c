@@ -53,6 +53,15 @@ void CSpec_End()
     }
 }
 
+int CSpec_StartContext(const char *descr)
+{
+    if(CSpec_output->startContextFun != NULL)
+    {
+        CSpec_output->startContextFun(descr);
+    }
+    return 0;
+}
+
 void CSpec_Eval(const char*filename, int line_number, const char*assertion, int assertionResult)
 {
     if(CSpec_output->evalFun != NULL)
