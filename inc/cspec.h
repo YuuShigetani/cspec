@@ -72,6 +72,7 @@
 
 typedef void ( * CSpecDescriptionFun ) ( );
 int CSpec_Run( CSpecDescriptionFun fun, CSpecOutputStruct* output);
+#define CSpec_vRun(fun) CSpec_Run(description(fun), CSpec_NewOutputVerbose())
 
 #endif
 

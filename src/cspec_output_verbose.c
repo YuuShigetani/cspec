@@ -33,7 +33,7 @@ void printTab(int n)
 
 void startDescribeFunVerbose( const char *descr)
 {
-    printf("Describe:%s\n", descr);
+    printf("%s\n", descr);
 }
 
 void endDescribeFunVerbose( )
@@ -44,7 +44,7 @@ void endDescribeFunVerbose( )
 void startItFunVerbose( const char *descr)
 {
     printTab(++tab_num);
-    printf("- it %s\n", descr);
+    printf("- %s\n", descr);
 }
 
 void endItFunVerbose( )
@@ -61,7 +61,7 @@ void endFunVerbose( )
 void startContextFunVerbose( const char *descr)
 {
     printTab(++tab_num);
-    printf("- context %s\n", descr);
+    printf("- %s\n", descr);
 }
 
 void evalFunVerbose(const char*filename, int line_number, const char*assertion, int assertionResult)

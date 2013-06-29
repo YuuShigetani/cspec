@@ -1,18 +1,22 @@
 #include <math.h>
 #include "cspec.h"
 
-DESCRIBE(fabs, "double fabs( double arg )")
+describe(fabs, "標準ライブラリfabsの")
 
-	IT( "returns the same number if the input number is positive" )
-		SHOULD_EQUAL( fabs(1.0), 1.0)
-		SHOULD_EQUAL( fabs(0.0), 0.0)
-		SHOULD_EQUAL( fabs(6.7), 6.7)
-	END_IT
+  context("引数が正の時")
+    it( "正の数を返す" )
+      should_equal( fabs(1.0), 1.0)
+      should_equal( fabs(0.0), 0.0)
+      should_equal( fabs(6.7), 6.7)
+    end
+  end
 
-	IT( "returns the opposite number if the number is negative"  )
-		SHOULD_EQUAL( fabs(-1.0), 1.0)
-		SHOULD_EQUAL( fabs(-6.7), 6.7)
-	END_IT
+  context("引数が負の時")
+    it( "負の数を返す" )
+      should_equal( fabs(-1.0), 1.0)
+      should_equal( fabs(-6.7), 6.7)
+    end
+  end
 
-END_DESCRIBE
+end
 
