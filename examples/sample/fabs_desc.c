@@ -1,20 +1,20 @@
 #include <math.h>
 #include "cspec.h"
 
-describe(fabs, "標準ライブラリfabsの")
+describe(fabs, "fabs")
 
-  context("引数が正の時")
-    it( "正の数を返す" )
-      should_equal( fabs(1.0), 1.0)
-      should_equal( fabs(0.0), 0.0)
-      should_equal( fabs(6.7), 6.7)
+  context("argument is positive")
+    it("return positive")
+      expect_to_equal(fabs(1.0), 1.0)
+      expect_to_equal(fabs(0.0), 0.0)
+      expect_to_equal(fabs(6.7), 6.7)
     end
   end
 
-  context("引数が負の時")
-    it( "負の数を返す" )
-      should_equal( fabs(-1.0), 1.0)
-      should_equal( fabs(-6.7), 6.7)
+  context("argument is negative")
+    it("return positive")
+      should_equal(fabs(-1.0), 1.0)
+      should_equal(fabs(-6.7), 6.7)
     end
   end
 

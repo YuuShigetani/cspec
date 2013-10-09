@@ -36,22 +36,6 @@
 
 /* Expectation macros */
 
-#define should_be_true(x)                       CSPEC_EVAL ( (x) )
-#define should_equal(x, y)                      CSPEC_EVAL ( (x) == (y) )
-#define should_equal_double(x, y, delta)        CSPEC_EVAL ( cspec_fabs( (x) - (y) ) <= delta )
-#define should_match(x, y)                      CSPEC_EVAL ( cspec_strcmp(x, y) ==  0   )
-#define should_be_null(x)                       CSPEC_EVAL ( (x) == 0 )
-
-#define should_be_false(x)                      CSPEC_EVAL ( !(x) )
-#define should_not_equal(x, y)                  CSPEC_EVAL ( (x) != (y) )
-#define should_not_equal_double(x, y, delta)    CSPEC_EVAL ( cspec_fabs( (x) - (y) ) > delta )
-#define should_not_match(x, y)                  CSPEC_EVAL ( cspec_strcmp(x, y) != 0   )
-#define should_not_be_null(x)                   CSPEC_EVAL ( (x) != 0 )
-
-#define should_pending(reason)                  CSPEC_PENDING(reason)
-
-/* Alias Expectation macros */
-
 #define expect_to_be_true(x)                    CSPEC_EVAL ( (x) )
 #define expect_to_equal(x, y)                   CSPEC_EVAL ( (x) == (y) )
 #define expect_to_equal_double(x, y, delta)     CSPEC_EVAL ( cspec_fabs( (x) - (y) ) <= delta )
@@ -66,6 +50,21 @@
 
 #define expect_to_pending(reason)               CSPEC_PENDING(reason)
 
+/* Alias Expectation macros */
+
+#define should_be_true(x)                       expect_to_be_true(x)
+#define should_equal(x, y)                      expect_to_equal(x, y)
+#define should_equal_double(x, y, delta)        expect_to_equal_double(x, y, delta)
+#define should_match(x, y)                      expect_to_match(x, y)
+#define should_be_null(x)                       expect_to_be_null(x)
+
+#define should_be_false(x)                      expect_to_be_false(x)
+#define should_not_equal(x, y)                  expect_not_to_equal(x, y)
+#define should_not_equal_double(x, y, delta)    expect_not_to_equal_double(x, y, delta)
+#define should_not_match(x, y)                  expect_not_to_match(x, y)
+#define should_not_be_null(x)                   expect_not_to_be_null(x)
+
+#define should_pending(reason)                  expect_to_pending(reason)
 
 
 /* Public function definition */
