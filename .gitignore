@@ -1,5 +1,6 @@
 .DS_Store
 *.o
+*.lo
 src/libcspec.a
 .deps/
 example/
@@ -11,6 +12,8 @@ sample_xml/results.xml
 /autom4te.cache/
 aclocal.m4
 /config.*
+/config
+.libs
 configure
 depcomp
 install-sh
@@ -18,3 +21,4 @@ Makefile
 Makefile.in
 missing
 stamp-h1
+libtool

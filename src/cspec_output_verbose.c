@@ -28,7 +28,7 @@ void printTab(int n)
 {
     int i;
     for (i = 0; i < n; i++)
-        printf("    ");
+        printf("  ");
 }
 
 void startDescribeFunVerbose( const char *descr)
@@ -38,7 +38,17 @@ void startDescribeFunVerbose( const char *descr)
 
 void endDescribeFunVerbose( )
 {
-    printf("\n");
+}
+
+void startContextFunVerbose( const char *descr)
+{
+    printTab(++tab_num);
+    printf("- %s\n", descr);
+}
+
+void endContextFunVerbose( )
+{
+    tab_num--;
 }
 
 void startItFunVerbose( const char *descr)
@@ -49,19 +59,12 @@ void startItFunVerbose( const char *descr)
 
 void endItFunVerbose( )
 {
-    printf("\n");
+    tab_num--;
 }
 
 void endFunVerbose( )
 {
     tab_num--;
-    printf("\n");
-}
-
-void startContextFunVerbose( const char *descr)
-{
-    printTab(++tab_num);
-    printf("- %s\n", descr);
 }
 
 void evalFunVerbose(const char*filename, int line_number, const char*assertion, int assertionResult)
@@ -81,7 +84,8 @@ void evalFunVerbose(const char*filename, int line_number, const char*assertion, 
 
 void pendingFunVerbose(const char* reason)
 {
-    coloredPrintf(CSPEC_COLOR_YELLOW, "       Pending: %s\n", reason);
+    printTab(tab_num + 1);
+    coloredPrintf(CSPEC_COLOR_YELLOW, "Pending: %s\n", reason);
 }
 
 CSpecOutputStruct* CSpec_NewOutputVerbose()
@@ -93,6 +97,7 @@ CSpecOutputStruct* CSpec_NewOutputVerbose()
     verbose.startItFun       = startItFunVerbose;
     verbose.endItFun         = endItFunVerbose;
     verbose.startContextFun  = startContextFunVerbose;
+    verbose.endContextFun    = endContextFunVerbose;
     verbose.endFun           = endFunVerbose;
     verbose.evalFun          = evalFunVerbose;
     verbose.pendingFun       = pendingFunVerbose;

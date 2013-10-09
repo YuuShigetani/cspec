@@ -3,8 +3,8 @@
 
 AC_PREREQ(2.59)
 AC_INIT(cspec, 0.3.0-snapshot, quanyangyi0323@gmail.com)
-AC_CONFIG_SRCDIR([src/cspec_output.c])
 AC_CONFIG_HEADER([config.h])
+AC_CONFIG_AUX_DIR(config)
 AM_INIT_AUTOMAKE
 
 AC_ARG_ENABLE(debug,
@@ -36,9 +36,15 @@ AM_CONDITIONAL(COVERAGE, test x$coverage = xtrue)
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
 AC_PROG_RANLIB
 
 # Checks for libraries.
+LT_INIT
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -55,6 +61,7 @@ AC_FUNC_VPRINTF
 AC_CHECK_FUNCS([memset strdup])
 
 AC_CONFIG_FILES([Makefile
-                 src/Makefile
-                 examples/spec/Makefile])
+                 script/Makefile
+                 script/cspec
+                 src/Makefile])
 AC_OUTPUT

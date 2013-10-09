@@ -12,9 +12,11 @@ typedef void ( * CSpecOutputEndDescribeFun ) ( );
 
 typedef void ( * CSpecOutputStartItFun ) ( const char *descr);
 typedef void ( * CSpecOutputEndItFun ) ( );
-typedef void ( * CSpecOutputEndFun ) ( );
 
 typedef void ( * CSpecOutputStartContextFun ) ( const char *descr);
+typedef void ( * CSpecOutputEndContextFun ) ( );
+
+typedef void ( * CSpecOutputEndFun ) ( );
 
 typedef void ( * CSpecOutputEvalFun ) (const char*filename, int line_number, const char*assertion, int assertionResult);
 typedef void ( * CSpecOutputPendingFun ) (const char* reason);
@@ -30,6 +32,7 @@ typedef struct
     CSpecOutputEndFun           endFun;
 
     CSpecOutputStartContextFun  startContextFun;
+    CSpecOutputEndContextFun    endContextFun;
 
     CSpecOutputEvalFun          evalFun;
     CSpecOutputPendingFun       pendingFun;

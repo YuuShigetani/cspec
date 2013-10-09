@@ -16,8 +16,8 @@ endif
 
 INCLUDES	=	-I$(top_srcdir)/inc
 
-lib_LIBRARIES	=	libcspec.a
-libcspec_a_SOURCES	=	\
+lib_LTLIBRARIES = libcspec.la
+libcspec_la_SOURCES	=	\
 	cspec_output_header.c \
 	cspec_output_verbose.c \
 	cspec_output_xml.c \
@@ -28,3 +28,4 @@ libcspec_a_SOURCES	=	\
 	cspec_output.c \
 	array.c \
 	cspec_output_junit_xml.c
+pkginclude_HEADERS = $(top_srcdir)/inc/*.h

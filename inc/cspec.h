@@ -12,6 +12,7 @@
 #include "cspec_config.h"
 #include "cspec_private.h"
 #include "cspec_output.h"
+#include "cspec_output_verbose.h"
 
 /*               */
 /* Public macros */
@@ -31,6 +32,14 @@
 #define end                     } CSpec_End() ; }
 
 #define context(caption)        { CSpec_StartContext(caption); {
+#define end_describe            } CSpec_EndContext(); }
+
+#define before(foo)                       \
+    auto void before_ ## foo (void);      \
+    CSpec_set_before( before_ ## foo ); \
+    void before_ ## foo () {              \
+    CSpec_StartBefore(); {
+#define end_before         } CSpec_EndBefore(); }
 
 
 
@@ -71,7 +80,9 @@
 
 typedef void ( * CSpecDescriptionFun ) ( );
 int CSpec_Run( CSpecDescriptionFun fun, CSpecOutputStruct* output);
-#define CSpec_vRun(fun) CSpec_Run(description(fun), CSpec_NewOutputVerbose())
+#define CSpec_vRun(fun) \
+    define_description(fun) \
+    CSpec_Run(description(fun), CSpec_NewOutputVerbose())
 
 #endif
 

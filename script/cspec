@@ -1,0 +1,13 @@
+#!/bin/sh
+
+INSTDIR=/usr/local
+CC="gcc"
+EXEC="exec_test"
+CSPECFLAGS="-I${INSTDIR}/include -finstrument-functions -rdynamic"
+CSPECLIBS="-L${INSTDIR}/lib -lcspec -lm"
+CSPECSRC=`find src -name *.c`
+CSPECSPEC=`find spec -name *.c`
+
+$CC $CSPECFLAGS $CSPECLIBS $CSPECSRC $CSPECSPEC -o $EXEC $*
+./$EXEC
+rm -f *.o $EXEC
