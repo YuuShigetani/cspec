@@ -32,7 +32,7 @@
 #define end                     } CSpec_End() ; }
 
 #define context(caption)        { CSpec_StartContext(caption); {
-#define end_describe            } CSpec_EndContext(); }
+#define end_context            } CSpec_EndContext(); }
 
 #define before(foo)                       \
     auto void before_ ## foo (void);      \

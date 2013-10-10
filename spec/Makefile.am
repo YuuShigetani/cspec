@@ -19,4 +19,4 @@ INCLUDES	=	-I$(top_srcdir)/inc
 TESTS	=	spec
 check_PROGRAMS	=	$(TESTS)
 spec_SOURCES	=	spec_runner.c cspec_output_junit_xml_spec.c array_spec.c
-spec_LDADD	=	../../src/libcspec.a
+spec_LDADD	=	$(top_srcdir)/src/libcspec.la

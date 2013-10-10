@@ -73,7 +73,7 @@ void evalFunVerbose(const char*filename, int line_number, const char*assertion, 
     if(assertionResult)
     {
         coloredPrintf(CSPEC_COLOR_GREEN,
-                "OK: %s\n", assertion, filename, line_number);
+                "Passed: %s\n", assertion, filename, line_number);
     }
     else
     {

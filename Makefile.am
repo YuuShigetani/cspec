@@ -1,4 +1,4 @@
-SUBDIRS = src script
+SUBDIRS = src script spec
 
 if COVERAGE
 gcov:	FORCE

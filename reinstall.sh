@@ -2,6 +2,6 @@
 
 sudo make uninstall
 sudo make clean
-./autogen.sh
+./bootstrap
 ./configure
 ./remake.sh

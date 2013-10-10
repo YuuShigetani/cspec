@@ -23,3 +23,9 @@ missing
 stamp-h1
 libtool
 ltmain.sh
+.cccc
+*.gcda
+*.gcov
+lcov.info
+result.xml
+output_cspec*
