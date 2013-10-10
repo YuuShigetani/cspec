@@ -27,5 +27,4 @@ ltmain.sh
 *.gcda
 *.gcov
 lcov.info
-result.xml
-output_cspec*
+*.xml

@@ -13,6 +13,10 @@
 #include "cspec_private.h"
 #include "cspec_output.h"
 #include "cspec_output_verbose.h"
+#include "cspec_output_header.h"
+#include "cspec_output_junit_xml.h"
+#include "cspec_output_unit.h"
+#include "cspec_output_xml.h"
 
 /*               */
 /* Public macros */
@@ -83,6 +87,18 @@ int CSpec_Run( CSpecDescriptionFun fun, CSpecOutputStruct* output);
 #define CSpec_vRun(fun) \
     define_description(fun) \
     CSpec_Run(description(fun), CSpec_NewOutputVerbose())
+#define CSpec_hRun(fun) \
+    define_description(fun) \
+    CSpec_Run(description(fun), CSpec_NewOutputHeader())
+#define CSpec_jxRun(fun) \
+    define_description(fun) \
+    CSpec_Run(description(fun), CSpec_NewOutputJUnitXml())
+#define CSpec_uRun(fun) \
+    define_description(fun) \
+    CSpec_Run(description(fun), CSpec_NewOutputUnit())
+#define CSpec_xRun(fun) \
+    define_description(fun) \
+    CSpec_Run(description(fun), CSpec_NewOutputXml())
 
 #endif
 
