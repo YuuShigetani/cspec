@@ -23,7 +23,9 @@ stamp-h1
 libtool
 ltmain.sh
 .cccc
+*.gcno
 *.gcda
 *.gcov
 lcov.info
 *.xml
+/gcov

@@ -2,11 +2,10 @@ SUBDIRS = src script
 
 if COVERAGE
 gcov:	FORCE
-	cd src; gcov -b -f *.gcda
-	cd spec; gcov -b -f *.gcda
+	gcov -b -f *.gcda
 	lcov -c -d . -o lcov.info
 	genhtml -o gcov lcov.info
-	gcovr.py -b -x > coverage.xml
+	gcovr -b -x > coverage.xml
 endif
 
 splint: FORCE
@@ -21,5 +20,17 @@ cpd:	FORCE
 
 spec:	FORCE
 	cspec -I./inc
+	rm -f output_cspec_output_junit_xml_case*.xml
+
+specall:	FORCE
+	cspec -I./inc -fprofile-arcs -ftest-coverage
+	make gcov
+	rm -f *.gcno *.gcda output_cspec_output_junit_xml_case*.xml
+
+reinstall:	FORCE
+	make uninstall clean
+	./bootstrap
+	./configure --enable-coverage
+	make all install specall
 
 FORCE:
