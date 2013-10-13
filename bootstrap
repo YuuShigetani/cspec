@@ -2,6 +2,7 @@
 if [ -x /usr/bin/aclocal ]
 then
     aclocal -I config
+    autoheader
     libtoolize --force --copy \
         && automake --add-missing --foreign --copy \
         && autoconf
