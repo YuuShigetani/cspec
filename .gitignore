@@ -11,8 +11,7 @@ sample_xml/results.xml
 *~
 /autom4te.cache/
 aclocal.m4
-/config.*
-/config
+config.*
 .libs
 configure
 depcomp
