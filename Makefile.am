@@ -1,4 +1,4 @@
-SUBDIRS = src script spec
+SUBDIRS = src script
 
 if COVERAGE
 gcov:	FORCE
@@ -18,5 +18,8 @@ cccc:	FORCE
 
 cpd:	FORCE
 	java net.sourceforge.pmd.cpd.CPD --minimum-tokens 100 --files $(top_srcdir) --language c  --format xml > $(top_srcdir)/cpd.xml
+
+spec:	FORCE
+	cspec -I./inc
 
 FORCE:

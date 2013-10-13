@@ -17,11 +17,11 @@
 
 int cspec_strcmp ( const char * str1, const char * str2 )
 {
-	return strcmp(str1, str2);
+  return strcmp(str1, str2);
 }
 
 cspec_double cspec_fabs( cspec_double arg )
 {
-	return fabs(arg);
+  return fabs(arg);
 }
 

@@ -2,8 +2,6 @@
 #include <string.h>
 
 #include "cspec/cspec.h"
-#include "cspec/cspec_output_junit_xml.h"
-#include "cspec/cspec_output_verbose.h"
 
 define_description(array_new);
 define_description(array_delete);
@@ -27,13 +25,14 @@ int main()
     ret += CSpec_Run(description(array_add),         CSpec_NewOutputJUnitXml());
     ret += CSpec_Run(description(array_get_element), CSpec_NewOutputJUnitXml());
 
+    ret += CSpec_Run(description(CSpec_NewOutputJUnitXml),      CSpec_NewOutputJUnitXml());
+    ret += CSpec_Run(description(destruct_it),                  CSpec_NewOutputJUnitXml());
+    ret += CSpec_Run(description(destruct_descr),               CSpec_NewOutputJUnitXml());
+
     CSpec_JUnitXmlFileClose();
 
-    ret += CSpec_Run(description(CSpec_NewOutputJUnitXml),      CSpec_NewOutputVerbose());
     ret += CSpec_Run(description(cspec_output_junit_xml_case1), CSpec_NewOutputVerbose());
     ret += CSpec_Run(description(cspec_output_junit_xml_case2), CSpec_NewOutputVerbose());
-    ret += CSpec_Run(description(destruct_it),                  CSpec_NewOutputVerbose());
-    ret += CSpec_Run(description(destruct_descr),               CSpec_NewOutputVerbose());
 
     return ret;
 }
