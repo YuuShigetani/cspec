@@ -29,3 +29,4 @@ ltmain.sh
 lcov.info
 *.xml
 /gcov
+.make_targets
